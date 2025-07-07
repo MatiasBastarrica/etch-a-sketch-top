@@ -35,7 +35,7 @@ function createAllCells(squaresPerSide = 16) {
     const cell = createIndividualCell(squaresPerSide);
     gridContainer.appendChild(cell);
     cell.addEventListener("mouseenter", (e) => {
-      e.target.style.backgroundColor = "deeppink";
+      e.target.style.backgroundColor = getRandomBackgroundColor();
     });
   }
 }
@@ -62,4 +62,14 @@ function gridChange() {
   currentGrid.textContent = `Current grid: ${squaresPerSide}x${squaresPerSide}`;
 
   createAllCells(squaresPerSide);
+}
+
+// RANDOMIZE THE SQUARES’ RGB VALUES WITH EACH INTERACTION
+
+function getRandomNumber(min = 0, max = 256) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+function getRandomBackgroundColor() {
+  return `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
 }
