@@ -12,7 +12,7 @@ gridContainer.style.flexWrap = "wrap";
 
 // CREATE A CELL FOR THE GRID
 
-function createIndividualCell(squaresPerSide = 16) {
+function createIndividualCell(squaresPerSide) {
   const cell = document.createElement("div");
   cell.classList.add("cell");
   cell.style.width = `${720 / squaresPerSide}px`;
@@ -21,7 +21,7 @@ function createIndividualCell(squaresPerSide = 16) {
   return cell;
 }
 
-function createAllCells(squaresPerSide) {
+function createAllCells(squaresPerSide = 16) {
   for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
     const cell = createIndividualCell(squaresPerSide);
     gridContainer.appendChild(cell);
@@ -30,6 +30,8 @@ function createAllCells(squaresPerSide) {
     });
   }
 }
+
+createAllCells();
 
 // PROMPT THE USER TO CHANGE THE GRID WHEN THE BUTTON IS CLICKED
 
