@@ -28,3 +28,21 @@ for (let i = 0; i < 256; i++) {
     e.target.style.backgroundColor = "deeppink";
   });
 }
+
+// PROMPT THE USER TO CHANGE THE GRID WHEN THE BUTTON IS CLICKED
+
+const btnChangeGrid = document.querySelector("button.grid-change-btn");
+btnChangeGrid.addEventListener("click", gridChange);
+
+function gridChange() {
+  const squaresPerSide = prompt(
+    "Write the number of squares per side for the new grid."
+  );
+  if (squaresPerSide > 100) {
+    squaresPerSide = prompt("The maximun is 100. Try again.");
+  } else if (!squaresPerSide) {
+    squaresPerSide = prompt("Enter a number between 0 and 100");
+  }
+
+  return squaresPerSide;
+}
