@@ -12,21 +12,23 @@ gridContainer.style.flexWrap = "wrap";
 
 // CREATE A CELL FOR THE GRID
 
-function createCell() {
+function createIndividualCell(squaresPerSide = 16) {
   const cell = document.createElement("div");
   cell.classList.add("cell");
-  cell.style.width = "45px";
-  cell.style.height = "45px";
+  cell.style.width = `${720 / squaresPerSide}px`;
+  cell.style.height = `${720 / squaresPerSide}px`;
   cell.style.border = "2px solid gray";
   return cell;
 }
 
-for (let i = 0; i < 256; i++) {
-  const cell = createCell();
-  gridContainer.appendChild(cell);
-  cell.addEventListener("mouseenter", (e) => {
-    e.target.style.backgroundColor = "deeppink";
-  });
+function createAllCells(squaresPerSide) {
+  for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
+    const cell = createIndividualCell(squaresPerSide);
+    gridContainer.appendChild(cell);
+    cell.addEventListener("mouseenter", (e) => {
+      e.target.style.backgroundColor = "deeppink";
+    });
+  }
 }
 
 // PROMPT THE USER TO CHANGE THE GRID WHEN THE BUTTON IS CLICKED
@@ -35,6 +37,7 @@ const btnChangeGrid = document.querySelector("button.grid-change-btn");
 btnChangeGrid.addEventListener("click", gridChange);
 
 function gridChange() {
+  gridContainer.replaceChildren();
   let squaresPerSide = prompt(
     "Write the number of squares per side for the new grid."
   );
@@ -46,5 +49,5 @@ function gridChange() {
     }
   }
 
-  return squaresPerSide;
+  createAllCells(squaresPerSide);
 }
