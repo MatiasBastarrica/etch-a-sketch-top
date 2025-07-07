@@ -35,13 +35,15 @@ const btnChangeGrid = document.querySelector("button.grid-change-btn");
 btnChangeGrid.addEventListener("click", gridChange);
 
 function gridChange() {
-  const squaresPerSide = prompt(
+  let squaresPerSide = prompt(
     "Write the number of squares per side for the new grid."
   );
-  if (squaresPerSide > 100) {
-    squaresPerSide = prompt("The maximun is 100. Try again.");
-  } else if (!squaresPerSide) {
-    squaresPerSide = prompt("Enter a number between 0 and 100");
+  for (let i = 0; !(squaresPerSide >= 1 && squaresPerSide <= 100); i++) {
+    if (squaresPerSide > 100) {
+      squaresPerSide = prompt("The maximun is 100. Try again.");
+    } else if (!squaresPerSide) {
+      squaresPerSide = prompt("Enter a number between 0 and 100");
+    }
   }
 
   return squaresPerSide;
