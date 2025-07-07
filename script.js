@@ -10,6 +10,15 @@ gridContainer.style.outline = "3px solid black";
 gridContainer.style.display = "flex";
 gridContainer.style.flexWrap = "wrap";
 
+// ADD AN ELEMENT BEFORE THE GRID
+// THIS ELEMENT SHOULD SHOW THE DIMENSIONS OF THE CURRENT GRID
+const body = document.querySelector("body");
+
+const currentGrid = document.createElement("p");
+currentGrid.style.fontSize = "1.5rem";
+currentGrid.textContent = "Current grid: 16x16";
+body.insertBefore(currentGrid, gridContainer);
+
 // CREATE A CELL FOR THE GRID
 
 function createIndividualCell(squaresPerSide) {
@@ -50,6 +59,7 @@ function gridChange() {
       squaresPerSide = prompt("Enter a number between 0 and 100");
     }
   }
+  currentGrid.textContent = `Current grid: ${squaresPerSide}x${squaresPerSide}`;
 
   createAllCells(squaresPerSide);
 }
