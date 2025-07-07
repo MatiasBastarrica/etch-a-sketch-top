@@ -1,7 +1,7 @@
 # rock-paper-scissors-top
 
 ![Preview](./screenshot.png)
-[Live version](https://matiasbastarrica.github.io/rock-paper-scissors-top/)
+[Live version](https://matiasbastarrica.github.io/etch-a-sketch-top/)
 
 # Introduction
 
