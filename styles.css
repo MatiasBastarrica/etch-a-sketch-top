@@ -3,3 +3,8 @@
 * {
   box-sizing: border-box;
 }
+
+.grid-change-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
