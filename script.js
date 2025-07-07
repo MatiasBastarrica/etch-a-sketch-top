@@ -59,9 +59,10 @@ function gridChange() {
       squaresPerSide = prompt("Enter a number between 0 and 100");
     }
   }
-  currentGrid.textContent = `Current grid: ${squaresPerSide}x${squaresPerSide}`;
+  let squaresPerSideInteger = Math.floor(squaresPerSide);
+  currentGrid.textContent = `Current grid: ${squaresPerSideInteger}x${squaresPerSideInteger}`;
 
-  createAllCells(squaresPerSide);
+  createAllCells(squaresPerSideInteger);
 }
 
 // RANDOMIZE THE SQUARES’ RGB VALUES WITH EACH INTERACTION
